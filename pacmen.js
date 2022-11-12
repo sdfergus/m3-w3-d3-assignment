@@ -22,10 +22,11 @@ function makePac() {
   newimg.width = 100;
 
   // TODO: set position here
-
+  newimg.style.left = position.x;
+  newimg.style.top = position.y;
 
   // TODO add new Child image to game
-  game.appendChild(/* TODO: add parameter */ );
+  game.appendChild( newimg );
 
   // return details in an object
   return {
