@@ -1,4 +1,8 @@
 const pacMen = []; // This array holds all the pacmen
+let webPageWidth = window.innerWidth; //Provides width of webpage
+let webPageHeight = window.innerHeight; //Provides height of webpage
+console.log( 'WEB WIDTH: ', webPageWidth );
+console.log( 'WEB HEIGHT: ', webPageHeight );
 
 // This function returns an object with random values
 function setToRandom( scale ) {
@@ -24,6 +28,8 @@ function makePac() {
   // TODO: set position here
   newimg.style.left = position.x;
   newimg.style.top = position.y;
+
+  console.log( 'THIS IS NEW IMG: ', newimg );
 
   // TODO add new Child image to game
   game.appendChild( newimg );
@@ -51,6 +57,22 @@ function update() {
 
 function checkCollisions( item ) {
   // TODO: detect collision with all walls and make pacman bounce
+  const pacDiameter = item.newimg.width;
+
+  if ( item.position.x + item.velocity.x > webPageWidth - pacDiameter ||
+    item.position.x + item.velocity.x < 0 ) {
+
+    item.velocity.x = -item.velocity.x;
+
+  }
+  if ( item.position.y + item.velocity.y > webPageHeight - pacDiameter ||
+    item.position.y + item.velocity.y < 0 ) {
+    // item.velocity.y = -Math.abs( item.velocity.y );
+    item.velocity.y = -item.velocity.y
+  }
+
+  item.position.x += item.velocity.x;
+  item.position.y += item.velocity.y;
 
 }
 
