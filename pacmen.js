@@ -1,8 +1,6 @@
 const pacMen = []; // This array holds all the pacmen
 let webPageWidth = window.innerWidth; //Provides width of webpage
 let webPageHeight = window.innerHeight; //Provides height of webpage
-console.log( 'WEB WIDTH: ', webPageWidth );
-console.log( 'WEB HEIGHT: ', webPageHeight );
 
 // This function returns an object with random values
 function setToRandom( scale ) {
@@ -22,14 +20,13 @@ function makePac() {
   let game = document.getElementById( 'game' );
   let newimg = document.createElement( 'img' );
   newimg.style.position = 'absolute';
-  newimg.src = './images/PacMan1.png';
+  // newimg.src = './images/PacMan1.png';
+  newimg.src = `./images/PacMan${ Math.floor( Math.random() * 4 + 1 ) }.png`;
   newimg.width = 100;
 
   // TODO: set position here
   newimg.style.left = position.x;
   newimg.style.top = position.y;
-
-  console.log( 'THIS IS NEW IMG: ', newimg );
 
   // TODO add new Child image to game
   game.appendChild( newimg );
